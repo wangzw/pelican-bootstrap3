@@ -1,0 +1,37 @@
+{% if DUOSHUO_SITENAME %}
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+	{% if article %}
+		{% set duoshuo_identifier = article.date|strftime('%Y-%m-') ~ article.slug if DUOSHUO_ID_PREFIX_SLUG else article.slug %}
+        {% set duoshuo_url = SITEURL + "/" + article.url %}
+        {% set duoshuo_title = article.title %}
+    {% elif page %}
+        {% set duoshuo_identifier = "page-" + page.slug %}
+        {% set duoshuo_url = SITEURL + "/" + page.url %}
+        {% set duoshuo_title = page.title %}
+    {% endif %}
+    
+    <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="{{duoshuo_identifier}}" data-title="{{duoshuo_title}}" data-url="{{duoshuo_url}}"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"{{ DUOSHUO_SITENAME }}"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+        
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            多说.</a></noscript>
+
+    </section>
+{% endif %}
