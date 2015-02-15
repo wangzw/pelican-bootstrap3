@@ -1,0 +1,1 @@
+{% if CYAN_APPID and CYAN_DISPLAY_COUNTS %}<p><small><a href="{{ SITEURL }}/{{ article.url }}#SOHUCS" class="cy_cmt_count" id="sourceId::{{ article.date|strftime('%Y-%m-') ~ article.slug if CYAN_ID_PREFIX_SLUG else article.slug }}">View comments</a>.</small></p>{% endif %}

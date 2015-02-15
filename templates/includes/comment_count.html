@@ -1,5 +1,7 @@
 {% if DISQUS_SITENAME %}
 	{% include 'includes/disqus_comment_count.html' %}
+{% elif CYAN_APPID %}
+	{% include 'includes/cyan_comment_count.html' %}
 {% elif DUOSHUO_SITENAME %}
     {% include 'includes/duoshuo_comment_count.html' %}
 {% endif %}
