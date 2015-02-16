@@ -1,7 +1,7 @@
 {% if DUOSHUO_SITENAME %}
     <hr/>
     <section class="comments" id="comments">
-        <h2>Comments</h2>
+        <h2>评论</h2>
 
 	{% if article %}
 		{% set duoshuo_identifier = article.date|strftime('%Y-%m-') ~ article.slug if DUOSHUO_ID_PREFIX_SLUG else article.slug %}
